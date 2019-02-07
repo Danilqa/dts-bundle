@@ -183,6 +183,7 @@ export function bundle(options: Options): BundleResult {
             mainFileContent += generatedLine + "\n";
         });
         mainFile = path.resolve(baseDir, "dts-bundle.tmp." + exportName + ".d.ts");
+        // @ts-ignore
         fs.writeFileSync(mainFile, mainFileContent, 'utf8');
     }
 
@@ -424,6 +425,7 @@ export function bundle(options: Options): BundleResult {
             }
         }
 
+        // @ts-ignore
         fs.writeFileSync(outFile, content, 'utf8');
         bundleResult.emitted = true;
     } else {
