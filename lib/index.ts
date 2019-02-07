@@ -182,7 +182,7 @@ export function bundle(options: Options): BundleResult {
             trace(generatedLine);
             mainFileContent += generatedLine + "\n";
         });
-        mainFile = path.resolve(baseDir, "dts-bundle.tmp.style.d.ts");
+        mainFile = path.resolve(baseDir, "dts-bundle.tmp." + exportName + ".d.ts");
         fs.writeFileSync(mainFile, mainFileContent, 'utf8');
     }
 
@@ -789,7 +789,7 @@ function pushUniqueArr<T>(arr: T[], ...values: T[][]) {
 }
 
 function formatReference(file: string) {
-    return '/// <reference path='' + file.replace(/\\/g, '/') + '' />';
+    return '/// <reference path="' + file.replace(/\\/g, '/') + '" />';
 }
 
 function extractReference(tag: string) {
